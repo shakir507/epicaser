@@ -61,7 +61,7 @@ pathways_NL <- generate_patient_pathways_NL(arrivals)
 
 # Joining epi and hospital dataset for overall information on cases
 dataset_all <- left_join(arrivals,pathways_NL,by=c("CaseID"="admission"),keep = T) %>%
-                 mutate(Duration=difftime(enddatetime,startdatetime,units="days"))
+                 mutate(Duration=round(difftime(enddatetime,startdatetime,units="days"),2))
 
 
 
